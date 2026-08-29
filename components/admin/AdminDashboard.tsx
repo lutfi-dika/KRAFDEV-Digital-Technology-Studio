@@ -48,16 +48,23 @@ export default function AdminDashboard() {
   const [notice, setNotice] = useState<string | null>(null);
 
   const [orders, setOrders] = useState<Order[]>([]);
-  const [orderStatus, setOrderStatus] = useState<Record<string, Order["status"]>>({});
 
   useEffect(() => {
     if (!isAuthenticated()) {
       router.replace("/admin/login");
       return;
     }
-    setAuthed(true);
-    listProjects().then(setProjects);
-    setOrders(getOrders());
+    let active = true;
+    const t1 = setTimeout(() => setAuthed(true), 0);
+    listProjects().then((p) => {
+      if (active) setProjects(p);
+    });
+    const t2 = setTimeout(() => setOrders(getOrders()), 0);
+    return () => {
+      active = false;
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, [router]);
 
   if (authed === null) {
@@ -110,7 +117,6 @@ export default function AdminDashboard() {
   }
 
   function updateOrderStatus(id: string, status: Order["status"]) {
-    setOrderStatus((s) => ({ ...s, [id]: status }));
     const orders = getOrders();
     const target = orders.find((o) => o.id === id);
     if (target) {

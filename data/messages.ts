@@ -332,7 +332,7 @@ export const messages = {
         "Kami mengambil langkah yang wajar untuk melindungi informasi Anda dari akses, perubahan, atau pengungkapan yang tidak sah.",
       sectionContact: "Hubungi Kami",
       contactBody:
-        "Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, hubungi kami di hello@krafdev.com.",
+        "Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, hubungi kami via WhatsApp di +62 851-3597-7841.",
     },
     terms: {
       title: "Syarat & Ketentuan",
@@ -354,7 +354,7 @@ export const messages = {
         "Kami menyediakan layanan berdasarkan upaya terbaik dan tidak bertanggung jawab atas kerugian tidak langsung yang timbul dari penggunaan layanan kami.",
       sectionContact: "Hubungi Kami",
       contactBody:
-        "Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, hubungi kami di hello@krafdev.com.",
+        "Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, hubungi kami via WhatsApp di +62 851-3597-7841.",
     },
     about: {
       eyebrow: "Tentang KRAFDEV",
@@ -744,7 +744,7 @@ export const messages = {
         "We take reasonable measures to protect your information from unauthorized access, alteration, or disclosure.",
       sectionContact: "Contact Us",
       contactBody:
-        "If you have any questions about this privacy policy, contact us at hello@krafdev.com.",
+        "If you have any questions about this privacy policy, contact us on WhatsApp at +62 851-3597-7841.",
     },
     terms: {
       title: "Terms of Service",
@@ -766,7 +766,7 @@ export const messages = {
         "We provide our services on a best-effort basis and are not liable for indirect or consequential damages arising from the use of our services.",
       sectionContact: "Contact Us",
       contactBody:
-        "If you have any questions about these terms & conditions, contact us at hello@krafdev.com.",
+        "If you have any questions about these terms & conditions, contact us on WhatsApp at +62 851-3597-7841.",
     },
     about: {
       eyebrow: "About KRAFDEV",

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { MessageCircle } from "lucide-react";
 import { useI18n } from "@/components/providers/I18nProvider";
+import { waLink } from "@/lib/orders";
 
 type Errors = Partial<Record<string, string>>;
 
@@ -12,13 +14,11 @@ export default function ContactForm() {
   const { t } = useI18n();
   const [form, setForm] = useState({
     name: "",
-    email: "",
     whatsapp: "",
     subject: "",
     message: "",
   });
   const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
 
   function update(field: keyof typeof form, value: string) {
     setForm((f) => ({ ...f, [field]: value }));
@@ -28,26 +28,27 @@ export default function ContactForm() {
   function validate(): Errors {
     const e: Errors = {};
     if (!form.name.trim()) e.name = t("contactForm.nameRequired");
-    if (!form.email.trim()) {
-      e.email = t("contactForm.emailRequired");
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      e.email = t("contactForm.emailInvalid");
-    }
     if (!form.message.trim() || form.message.trim().length < 10) {
       e.message = t("contactForm.messageRequired");
     }
     return e;
   }
 
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
+  function handleSubmit(ev: FormEvent) {
+    ev.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
       return;
     }
-    setStatus("sending");
-    setTimeout(() => setStatus("success"), 800);
+    const lines = [
+      `Halo KRAFDEV! Saya ${form.name}.`,
+      form.whatsapp ? `Kontak: ${form.whatsapp}` : "",
+      form.subject ? `Subjek: ${form.subject}` : "",
+      "",
+      form.message,
+    ].filter(Boolean);
+    window.open(waLink(lines.join("\n")), "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -67,23 +68,6 @@ export default function ContactForm() {
           {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
         </div>
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
-            {t("contactForm.email")} *
-          </label>
-          <input
-            id="email"
-            type="email"
-            value={form.email}
-            onChange={(e) => update("email", e.target.value)}
-            placeholder={t("contactForm.emailPh")}
-            className={fieldClass}
-          />
-          {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
-        </div>
-      </div>
-
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
           <label htmlFor="whatsapp" className="mb-1.5 block text-sm font-medium text-foreground">
             {t("contactForm.whatsapp")}
           </label>
@@ -95,18 +79,19 @@ export default function ContactForm() {
             className={fieldClass}
           />
         </div>
-        <div>
-          <label htmlFor="subject" className="mb-1.5 block text-sm font-medium text-foreground">
-            {t("contactForm.subject")}
-          </label>
-          <input
-            id="subject"
-            value={form.subject}
-            onChange={(e) => update("subject", e.target.value)}
-            placeholder={t("contactForm.subjectPh")}
-            className={fieldClass}
-          />
-        </div>
+      </div>
+
+      <div>
+        <label htmlFor="subject" className="mb-1.5 block text-sm font-medium text-foreground">
+          {t("contactForm.subject")}
+        </label>
+        <input
+          id="subject"
+          value={form.subject}
+          onChange={(e) => update("subject", e.target.value)}
+          placeholder={t("contactForm.subjectPh")}
+          className={fieldClass}
+        />
       </div>
 
       <div>
@@ -126,15 +111,11 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        disabled={status === "sending"}
-        className="w-full rounded-md bg-accent px-5 py-3 text-sm font-medium text-white hover:bg-accent/90 disabled:opacity-60 sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-medium text-white hover:bg-accent/90 sm:w-auto"
       >
-        {status === "sending"
-          ? t("contactForm.sending")
-          : status === "success"
-            ? t("contactForm.sent")
-            : t("contactForm.send")}
+        <MessageCircle className="h-4 w-4" /> {t("contactForm.send")}
       </button>
+      <p className="text-xs text-muted">{t("orderDetail.waHint")}</p>
     </form>
   );
 }

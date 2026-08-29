@@ -169,11 +169,6 @@ export function paymentMethodsFor(locale: Locale) {
   return getPaymentMethods(locale);
 }
 
-type TierCopy = {
-  description: string;
-  features: string[];
-};
-
 const tierCopy: Record<Locale, string[]> = {
   id: [
     "Landing page modern dengan 1 halaman utama.",

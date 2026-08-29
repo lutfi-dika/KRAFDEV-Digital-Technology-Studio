@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   getProjects,
   getProjectCategories,
-  projectCategories as canonicalCategories,
 } from "@/data/projects";
 import ProjectCard from "@/components/project-card/ProjectCard";
 import { useI18n } from "@/components/providers/I18nProvider";
