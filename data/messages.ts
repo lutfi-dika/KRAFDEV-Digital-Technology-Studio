@@ -27,10 +27,14 @@ export const messages = {
     },
     trust: {
       title: "Teknologi yang mengubah ide menjadi pengalaman digital.",
-      projectsCompleted: "Project Selesai",
-      clients: "Klien",
-      technologies: "Teknologi",
-      yearsExperience: "Tahun Pengalaman",
+      statement:
+        "Kita mengerjakan setiap project satu per satu — memahami masalah, merancang solusi, lalu membangunnya dengan presisi.",
+      pillar1: "Project Terpilih",
+      pillar1Desc: "Karya kami tayangkan sebagai case study, bukan daftar angka.",
+      pillar2: "Layanan Fokus",
+      pillar2Desc: "Website, aplikasi, UI/UX, hingga SEO & performa.",
+      pillar3: "Proses Transparan",
+      pillar3Desc: "Cara kerja jelas di setiap tahap.",
     },
     home: {
       servicesTitle: "Layanan Kami",
@@ -257,6 +261,8 @@ export const messages = {
       emptyDesc: "Belum ada project pada kategori ini. Coba kategori lain.",
       emptyCta: "Tampilkan Semua",
       projectLabel: "Project",
+      yearLabel: "Tahun",
+      statusLabel: "Status",
     },
     serviceDetail: {
       orderThis: "Pesan Layanan Ini",
@@ -440,10 +446,14 @@ export const messages = {
     },
     trust: {
       title: "Technology that turns ideas into digital experiences.",
-      projectsCompleted: "Projects Completed",
-      clients: "Clients",
-      technologies: "Technologies",
-      yearsExperience: "Years Experience",
+      statement:
+        "We take on each project one at a time — understanding the problem, designing the solution, and building it with precision.",
+      pillar1: "Selected Projects",
+      pillar1Desc: "Our work is shown as case studies, not a list of numbers.",
+      pillar2: "Focused Work",
+      pillar2Desc: "Websites, applications, UI/UX, and SEO & performance.",
+      pillar3: "Transparent Process",
+      pillar3Desc: "A clear way of working at every step.",
     },
     home: {
       servicesTitle: "Our Services",
@@ -669,6 +679,8 @@ export const messages = {
       emptyDesc: "There are no projects in this category yet. Try another category.",
       emptyCta: "Show All",
       projectLabel: "Project",
+      yearLabel: "Year",
+      statusLabel: "Status",
     },
     serviceDetail: {
       orderThis: "Order This Service",

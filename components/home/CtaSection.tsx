@@ -12,7 +12,7 @@ export default function CtaSection() {
         {/* single subtle wash, kept minimal */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl"
+          className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-white/[0.06] blur-3xl"
         />
         <div className="relative mx-auto max-w-2xl">
           <h2 className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Checkout",
   description:
     "Review your project configuration and confirm your order with KRAFDEV.",
+  robots: { index: false, follow: false },
 };
 
 export default function CheckoutPage() {

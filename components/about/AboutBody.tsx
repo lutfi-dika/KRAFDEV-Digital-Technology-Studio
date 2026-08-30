@@ -1,16 +1,6 @@
 "use client";
 
-import {
-  ArrowRight,
-  CheckCircle2,
-  Eye,
-  PenTool,
-  Rocket,
-  Search,
-  Gauge,
-  MonitorCheck,
-  TrendingUp,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
@@ -20,16 +10,16 @@ export default function AboutBody() {
   const { t } = useI18n();
 
   const approach = [
-    { step: "01", icon: Search, title: t("about.approach1Title"), body: t("about.approach1Body") },
-    { step: "02", icon: PenTool, title: t("about.approach2Title"), body: t("about.approach2Body") },
-    { step: "03", icon: Rocket, title: t("about.approach3Title"), body: t("about.approach3Body") },
+    { step: "01", title: t("about.approach1Title"), body: t("about.approach1Body") },
+    { step: "02", title: t("about.approach2Title"), body: t("about.approach2Body") },
+    { step: "03", title: t("about.approach3Title"), body: t("about.approach3Body") },
   ];
 
   const principles = [
-    { step: "01", icon: Eye, title: t("about.principle1Title"), body: t("about.principle1Body") },
-    { step: "02", icon: Gauge, title: t("about.principle2Title"), body: t("about.principle2Body") },
-    { step: "03", icon: MonitorCheck, title: t("about.principle3Title"), body: t("about.principle3Body") },
-    { step: "04", icon: TrendingUp, title: t("about.principle4Title"), body: t("about.principle4Body") },
+    { step: "01", title: t("about.principle1Title"), body: t("about.principle1Body") },
+    { step: "02", title: t("about.principle2Title"), body: t("about.principle2Body") },
+    { step: "03", title: t("about.principle3Title"), body: t("about.principle3Body") },
+    { step: "04", title: t("about.principle4Title"), body: t("about.principle4Body") },
   ];
 
   const values = [
@@ -111,23 +101,22 @@ export default function AboutBody() {
           </h2>
         </Reveal>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {approach.map((a, i) => (
-            <Reveal key={a.step} delay={i * 0.05}>
-              <div className="relative h-full rounded-xl border border-border bg-surface p-7">
-                <span className="absolute right-6 top-6 text-4xl font-bold text-border/50">
-                  {a.step}
-                </span>
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                  <a.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-6 text-lg font-semibold uppercase tracking-wide text-foreground">
-                  {a.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{a.body}</p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-8">
+          <ol className="divide-y divide-border border-y border-border">
+            {approach.map((a, i) => (
+              <li key={a.step}>
+                <Reveal delay={i * 0.04}>
+                  <div className="grid gap-2 py-7 sm:grid-cols-[3.5rem_14rem_1fr] sm:gap-6">
+                    <span className="font-mono text-sm text-muted tabular-nums">{a.step}</span>
+                    <h3 className="font-semibold uppercase tracking-wider text-foreground sm:text-base">
+                      {a.title}
+                    </h3>
+                    <p className="leading-relaxed text-muted">{a.body}</p>
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -142,21 +131,20 @@ export default function AboutBody() {
           </h2>
         </Reveal>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {principles.map((p, i) => (
-            <Reveal key={p.step} delay={i * 0.05}>
-              <div className="h-full rounded-xl border border-border bg-surface p-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                    <p.icon className="h-5 w-5" />
+        <div className="mt-8">
+          <ol className="grid border-t border-border sm:grid-cols-2">
+            {principles.map((p, i) => (
+              <li key={p.step} className="border-b border-border sm:odd:pr-8 sm:even:border-l sm:even:pl-8">
+                <Reveal delay={i * 0.04}>
+                  <div className="py-6">
+                    <span className="font-mono text-sm text-muted tabular-nums">{p.step}</span>
+                    <h3 className="mt-3 text-lg font-semibold text-foreground">{p.title}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted">{p.body}</p>
                   </div>
-                  <span className="text-sm font-mono text-muted tabular-nums">{p.step}</span>
-                </div>
-                <h3 className="mt-5 font-semibold text-foreground">{p.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">{p.body}</p>
-              </div>
-            </Reveal>
-          ))}
+                </Reveal>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -172,15 +160,21 @@ export default function AboutBody() {
           <p className="mt-4 leading-relaxed text-muted">{t("about.workBody")}</p>
         </Reveal>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {workItems.map((s, i) => (
-            <Reveal key={s} delay={i * 0.05}>
-              <div className="flex items-center gap-3 rounded-xl border border-border bg-surface px-5 py-4 text-sm font-medium text-foreground">
-                <CheckCircle2 className="h-4 w-4 shrink-0 text-accent" />
-                {s}
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-8">
+          <ul className="divide-y divide-border border-y border-border">
+            {workItems.map((s, i) => (
+              <li key={s}>
+                <Reveal delay={i * 0.04}>
+                  <div className="flex items-center gap-4 py-4 text-sm font-medium text-foreground">
+                    <span className="font-mono text-sm text-muted tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {s}
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -195,17 +189,21 @@ export default function AboutBody() {
           </h2>
         </Reveal>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {values.map((v, i) => (
-            <Reveal key={v.title} delay={i * 0.05}>
-              <div className="flex h-full flex-col rounded-xl border border-border bg-surface p-6">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-accent">
-                  {v.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{v.body}</p>
+        <div className="mt-8">
+          <dl className="grid border-t border-border sm:grid-cols-2 lg:grid-cols-3">
+            {values.map((v, i) => (
+              <div key={v.title} className="border-b border-border sm:pr-8">
+                <Reveal delay={i * 0.03}>
+                  <div className="py-6">
+                    <dt className="text-sm font-semibold uppercase tracking-wider text-accent">
+                      {v.title}
+                    </dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-muted">{v.body}</dd>
+                  </div>
+                </Reveal>
               </div>
-            </Reveal>
-          ))}
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -215,7 +213,7 @@ export default function AboutBody() {
           <div className="relative overflow-hidden rounded-2xl bg-accent p-8 text-white sm:p-14">
             <div
               aria-hidden
-              className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl"
+              className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"
             />
             <div className="relative flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
               <div className="max-w-xl">

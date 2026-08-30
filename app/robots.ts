@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/order", "/checkout", "/order/"],
     },
-    sitemap: "https://krafdev.com/sitemap.xml",
+    sitemap: "https://krafdevdigitaltechnologystudio.my.id/sitemap.xml",
   };
 }

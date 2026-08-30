@@ -3,7 +3,7 @@ import { services } from "@/data";
 import { projects } from "@/data/projects";
 import { blogPosts } from "@/data/blog";
 
-const baseUrl = "https://krafdev.com";
+const baseUrl = "https://krafdevdigitaltechnologystudio.my.id";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

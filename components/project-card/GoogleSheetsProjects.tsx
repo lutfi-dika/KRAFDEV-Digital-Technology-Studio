@@ -1,87 +1,153 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
+import { ExternalLink } from "lucide-react";
 import { fetchProjectsFromSheet, type GoogleSheetsProject } from "@/lib/googleSheetsProjects";
 import { useI18n } from "@/components/providers/I18nProvider";
 import { Reveal } from "@/components/ui/Reveal";
 
-function ProjectCardView({ project, index }: { project: GoogleSheetsProject; index: number }) {
+function ArrowIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M7 17L17 7M17 7H7M17 7V17" />
+    </svg>
+  );
+}
+
+function ProjectLink({
+  project,
+  children,
+  className = "",
+}: {
+  project: GoogleSheetsProject;
+  children: React.ReactNode;
+  className?: string;
+}) {
   const { t } = useI18n();
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface transition-colors hover:border-foreground/25">
-      {/* Card visual */}
-      <div className="relative aspect-[16/10] overflow-hidden bg-background">
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${t("projects.viewProject")} ${project.name}`}
+      className={className}
+    >
+      {children}
+    </a>
+  );
+}
+
+function FeaturedProject({ project, index }: { project: GoogleSheetsProject; index: number }) {
+  const { t } = useI18n();
+  return (
+    <ProjectLink
+      project={project}
+      className="group grid overflow-hidden rounded-xl border border-border bg-surface transition-colors hover:border-foreground/25 lg:grid-cols-2"
+    >
+      {/* Visual */}
+      <div className="relative aspect-[16/10] overflow-hidden bg-background lg:aspect-auto">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={project.image}
           alt={project.name}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
         />
-        <div className="absolute inset-0 flex items-end justify-end bg-gradient-to-t from-background/60 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${t("projects.viewProject")} ${project.name}`}
-            className="flex h-10 w-10 items-center justify-center rounded-md bg-accent text-white"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
-          </a>
-        </div>
       </div>
 
-      {/* Card content */}
-      <div className="flex flex-1 flex-col p-5">
-        <div className="flex items-center justify-between text-xs">
-          <span className="font-medium uppercase tracking-wider text-muted">
-            {t("projects.projectLabel")} {String(index + 1).padStart(2, "0")}
+      {/* Content */}
+      <div className="flex flex-col justify-between p-7 sm:p-9">
+        <div>
+          <p className="font-mono text-xs uppercase tracking-wider text-muted">
+            {t("projects.projectLabel")} / {String(index + 1).padStart(2, "0")}
+          </p>
+          <span className="mt-4 inline-block text-xs font-medium uppercase tracking-wide text-accent">
+            {project.category}
           </span>
-          <span className="text-muted tabular-nums">{project.year}</span>
-        </div>
-        <span className="mt-3 text-xs font-medium uppercase tracking-wide text-accent">
-          {project.category}
-        </span>
-        <h3 className="mt-2 text-xl font-semibold tracking-tight text-foreground">
-          {project.name}
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted">{project.description}</p>
+          <h3 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            {project.name}
+          </h3>
+          <p className="mt-3 max-w-prose leading-relaxed text-muted">
+            {project.description}
+          </p>
 
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {project.tags.map((tag, tIdx) => (
-            <span
-              key={`${tag}-${tIdx}`}
-              className="rounded border border-border bg-background px-2 py-0.5 text-xs text-secondary"
-            >
-              {tag}
-            </span>
-          ))}
+          <dl className="mt-6 grid grid-cols-3 gap-x-6 gap-y-4 border-t border-border pt-5">
+            <div>
+              <dt className="text-[11px] uppercase tracking-wide text-muted">
+                {t("projects.projectLabel")}
+              </dt>
+              <dd className="mt-1 text-sm font-medium text-foreground">{project.category}</dd>
+            </div>
+            <div>
+              <dt className="text-[11px] uppercase tracking-wide text-muted">
+                {t("projects.yearLabel")}
+              </dt>
+              <dd className="mt-1 text-sm font-medium text-foreground">{project.year}</dd>
+            </div>
+            <div>
+              <dt className="text-[11px] uppercase tracking-wide text-muted">
+                {t("projects.statusLabel")}
+              </dt>
+              <dd className="mt-1 text-sm font-medium text-foreground">{project.status}</dd>
+            </div>
+          </dl>
         </div>
 
-        <div className="mt-auto pt-5">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-accent"
-          >
-            {t("projects.viewProject")}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
-          </a>
+        <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
+          {t("projects.viewCaseStudy")}
+          <span className="text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent">
+            <ExternalLink className="h-4 w-4" />
+          </span>
         </div>
       </div>
-    </div>
+    </ProjectLink>
+  );
+}
+
+function CompactProject({ project, index }: { project: GoogleSheetsProject; index: number }) {
+  const { t } = useI18n();
+  return (
+    <ProjectLink
+      project={project}
+      className="group flex flex-col rounded-xl border border-border bg-surface p-6 transition-colors hover:border-foreground/25"
+    >
+      <div className="flex items-center justify-between text-xs">
+        <span className="font-mono uppercase tracking-wider text-muted">
+          {t("projects.projectLabel")} {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="text-muted tabular-nums">{project.year}</span>
+      </div>
+
+      <span className="mt-4 text-xs font-medium uppercase tracking-wide text-accent">
+        {project.category}
+      </span>
+      <h3 className="mt-1.5 text-xl font-semibold tracking-tight text-foreground">
+        {project.name}
+      </h3>
+      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">
+        {project.description}
+      </p>
+
+      <div className="mt-4 flex flex-wrap gap-1.5">
+        {project.tags.slice(0, 3).map((tag, tIdx) => (
+          <span
+            key={`${tag}-${tIdx}`}
+            className="rounded border border-border bg-background px-2 py-0.5 text-xs text-secondary"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-auto pt-5">
+        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-accent">
+          {t("projects.viewProject")}
+          <span className="text-muted transition-transform duration-200 group-hover:translate-x-0.5">
+            <ArrowIcon />
+          </span>
+        </span>
+      </div>
+    </ProjectLink>
   );
 }
 
@@ -127,6 +193,11 @@ export default function GoogleSheetsProjects() {
     return projectsData.filter((p) => p.category === activeFilter);
   }, [activeFilter, projectsData]);
 
+  const featured = filteredProjects.find((p) => p.featured);
+  const rest = featured
+    ? filteredProjects.filter((p) => p.id !== featured.id)
+    : filteredProjects.slice(1);
+
   return (
     <div>
       {/* Filter */}
@@ -163,17 +234,32 @@ export default function GoogleSheetsProjects() {
         </div>
       )}
 
-      {/* Grid */}
+      {/* Projects */}
       {!loading && !error && (
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 space-y-6">
           {filteredProjects.length > 0 ? (
-            filteredProjects.map((project, idx) => (
-              <Reveal key={project.id} delay={idx * 0.04}>
-                <ProjectCardView project={project} index={idx} />
-              </Reveal>
-            ))
+            <>
+              {(featured ?? filteredProjects[0]) && (
+                <Reveal>
+                  <FeaturedProject
+                    project={featured ?? filteredProjects[0]}
+                    index={rest.length}
+                  />
+                </Reveal>
+              )}
+
+              {rest.length > 0 && (
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {rest.map((project, idx) => (
+                    <Reveal key={project.id} delay={idx * 0.04}>
+                      <CompactProject project={project} index={idx + 1} />
+                    </Reveal>
+                  ))}
+                </div>
+              )}
+            </>
           ) : (
-            <div className="col-span-full mt-8 text-center">
+            <div className="mt-8 text-center">
               <h3 className="text-lg font-semibold text-foreground">{t("projects.emptyTitle")}</h3>
               <p className="mt-1 text-muted">{t("projects.emptyDesc")}</p>
               <button

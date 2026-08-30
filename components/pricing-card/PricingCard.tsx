@@ -20,7 +20,7 @@ export default function PricingCard({ tier }: { tier: PricingTier }) {
     <div
       className={`relative flex flex-col rounded-xl border p-6 transition-shadow ${
         tier.featured
-          ? "border-accent bg-surface shadow-lg"
+          ? "border-accent bg-surface shadow-md"
           : "border-border bg-surface"
       }`}
     >

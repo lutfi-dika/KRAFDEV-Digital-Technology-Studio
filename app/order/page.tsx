@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Order",
   description:
     "Configure your project with KRAFDEV. Choose your project type, budget, timeline, and features.",
+  robots: { index: false, follow: false },
 };
 
 export default function OrderPage() {

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://krafdev.com"),
+  metadataBase: new URL("https://krafdevdigitaltechnologystudio.my.id"),
   icons: {
     icon: "/krafdev.png",
     apple: "/krafdev.png",
@@ -49,16 +49,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://krafdev.com",
+    url: "https://krafdevdigitaltechnologystudio.my.id",
     siteName: "KRAFDEV",
-    images: [{ url: "https://krafdev.com/krafdev.png", width: 1024, height: 1024 }],
+    images: [{ url: "https://krafdevdigitaltechnologystudio.my.id/krafdev.png", width: 1024, height: 1024 }],
     title: "KRAFDEV - Digital Technology Studio",
     description:
       "Crafting Digital Technology. Modern websites, software, and digital solutions.",
   },
   twitter: {
     card: "summary_large_image",
-    images: ["https://krafdev.com/krafdev.png"],
+    images: ["https://krafdevdigitaltechnologystudio.my.id/krafdev.png"],
     title: "KRAFDEV - Digital Technology Studio",
     description:
       "Crafting Digital Technology. Modern websites, software, and digital solutions.",
@@ -70,9 +70,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "KRAFDEV",
-    url: "https://krafdev.com",
-    logo: "https://krafdev.com/krafdev.png",
-    image: "https://krafdev.com/krafdev.png",
+    url: "https://krafdevdigitaltechnologystudio.my.id",
+    logo: "https://krafdevdigitaltechnologystudio.my.id/krafdev.png",
+    image: "https://krafdevdigitaltechnologystudio.my.id/krafdev.png",
     description:
       "KRAFDEV Digital Technology Studio. Crafting digital technology for modern businesses.",
     slogan: "Crafting Digital Technology.",
