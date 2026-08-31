@@ -41,7 +41,7 @@ export default function BlogList() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group flex flex-col rounded-lg border border-border bg-surface p-6 transition-colors hover:border-accent/50"
+              className="group flex flex-col rounded-xl border border-border bg-surface p-6 transition-colors hover:border-accent/50"
             >
               <span className="text-xs font-medium text-accent-strong">
                 {post.category}

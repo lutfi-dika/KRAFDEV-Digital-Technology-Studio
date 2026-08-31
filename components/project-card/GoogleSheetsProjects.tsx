@@ -5,6 +5,8 @@ import { ExternalLink } from "lucide-react";
 import { fetchProjectsFromSheet, type GoogleSheetsProject } from "@/lib/googleSheetsProjects";
 import { useI18n } from "@/components/providers/I18nProvider";
 import { Reveal } from "@/components/ui/Reveal";
+import { getProjects } from "@/data/projects";
+import ProjectCard from "@/components/project-card/ProjectCard";
 
 function ArrowIcon() {
   return (
@@ -152,7 +154,7 @@ function CompactProject({ project, index }: { project: GoogleSheetsProject; inde
 }
 
 export default function GoogleSheetsProjects() {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const [projectsData, setProjectsData] = useState<GoogleSheetsProject[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -228,9 +230,14 @@ export default function GoogleSheetsProjects() {
       )}
 
       {error && (
-        <div className="mt-12 rounded-xl border border-border bg-surface p-8 text-center">
-          <h3 className="text-lg font-semibold text-foreground">{t("projects.errorTitle")}</h3>
-          <p className="mt-2 text-sm text-muted">{error}</p>
+        <div className="mt-12">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {getProjects(locale).map((project, idx) => (
+              <Reveal key={project.slug} delay={idx * 0.04}>
+                <ProjectCard project={project} />
+              </Reveal>
+            ))}
+          </div>
         </div>
       )}
 

@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-center">
           <div>
-            <p className="text-sm text-muted">Studio digital — Jakarta, Indonesia</p>
+            <p className="text-sm text-muted">{t("hero.location")}</p>
 
             <h1 className="mt-5 max-w-3xl text-balance font-display text-5xl font-medium leading-[1.02] tracking-tight text-foreground sm:text-6xl lg:text-[4.25rem]">
               {t("hero.title")}
@@ -55,7 +55,7 @@ export default function Hero() {
             />
 
             <div className="relative">
-              <p className="text-sm font-medium text-foreground">Alur kerja</p>
+              <p className="text-sm font-medium text-foreground">{t("hero.flowLabel")}</p>
               <svg
                 aria-hidden
                 viewBox="0 0 100 8"

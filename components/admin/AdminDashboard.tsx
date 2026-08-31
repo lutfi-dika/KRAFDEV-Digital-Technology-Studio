@@ -279,7 +279,7 @@ export default function AdminDashboard() {
                 <div className="flex gap-3 pt-2">
                   <button
                     type="submit"
-                    className="rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-white hover:bg-accent/90"
+                    className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-foreground hover:bg-accent/90"
                   >
                     {editing ? "Simpan Perubahan" : "Tambah Project"}
                   </button>

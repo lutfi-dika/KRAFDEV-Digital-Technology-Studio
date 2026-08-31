@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getProjects } from "@/data/projects";
 import { notFound } from "next/navigation";
@@ -22,11 +23,23 @@ export default function ProjectDetail({ slug }: { slug: string }) {
         <ArrowLeft className="h-4 w-4" /> {t("projects.all")}
       </Link>
 
-      <div
-        className="mt-6 flex aspect-[16/9] items-center justify-center rounded-xl"
-        style={{ backgroundColor: project.imageHex }}
-      >
-        <span className="font-display text-3xl font-medium text-white/90">{project.title}</span>
+      <div className="relative mt-6 overflow-hidden rounded-xl border border-border bg-surface">
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={1200}
+            height={630}
+            className="aspect-[16/9] w-full object-cover"
+          />
+        ) : (
+          <div
+            className="flex aspect-[16/9] items-center justify-center"
+            style={{ backgroundColor: project.imageHex }}
+          >
+            <span className="font-display text-3xl font-medium text-white/90">{project.title}</span>
+          </div>
+        )}
       </div>
 
       <h1 className="mt-8 font-display text-3xl font-medium tracking-tight text-foreground sm:text-4xl">

@@ -104,7 +104,7 @@ export default function Navbar({ onSearch }: { onSearch: () => void }) {
           <button
             type="button"
             onClick={onSearch}
-            className="flex h-9 w-9 items-center justify-center rounded-md text-muted hover:text-foreground sm:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-full text-muted hover:text-foreground sm:hidden"
             aria-label="Open search"
           >
             <Search className="h-[18px] w-[18px]" />
@@ -116,7 +116,7 @@ export default function Navbar({ onSearch }: { onSearch: () => void }) {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-md text-foreground lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full text-foreground lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
         >

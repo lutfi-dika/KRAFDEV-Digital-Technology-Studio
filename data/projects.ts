@@ -6,6 +6,7 @@ export type Project = {
   technologies: string[];
   year: string;
   liveUrl?: string;
+  image: string;
   imageHex: string;
 };
 
@@ -19,6 +20,7 @@ export const projects: Project[] = [
     technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
     year: "2025",
     liveUrl: "https://example.com",
+    image: "/projects/corporate-profile-nusantara.png",
     imageHex: "#1e3a8a",
   },
   {
@@ -30,6 +32,7 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
     year: "2025",
     liveUrl: "https://example.com",
+    image: "/projects/fintech-dashboard.png",
     imageHex: "#065f46",
   },
   {
@@ -40,6 +43,7 @@ export const projects: Project[] = [
       "Cross-platform delivery app with live tracking, payments, and order management.",
     technologies: ["React Native", "Firebase", "Stripe"],
     year: "2024",
+    image: "/projects/mobile-delivery-app.png",
     imageHex: "#7c2d12",
   },
   {
@@ -50,6 +54,7 @@ export const projects: Project[] = [
       "End-to-end UX redesign of an e-commerce platform increasing conversion by 24%.",
     technologies: ["Figma", "Design System", "Prototyping"],
     year: "2024",
+    image: "/projects/uiux-ecommerce-redesign.png",
     imageHex: "#6b21a8",
   },
 ];

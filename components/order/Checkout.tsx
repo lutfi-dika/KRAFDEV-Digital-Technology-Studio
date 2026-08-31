@@ -59,7 +59,7 @@ export default function Checkout() {
         <p className="text-muted">{t("checkout.noDraft")}</p>
         <Link
           href="/order"
-          className="mt-5 inline-block rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-white hover:bg-accent/90"
+          className="mt-5 inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-foreground hover:bg-accent/90"
         >
           {t("checkout.startProject")}
         </Link>
@@ -230,7 +230,7 @@ export default function Checkout() {
           </div>
           <button
             type="submit"
-            className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-medium text-white hover:bg-accent/90"
+            className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-medium text-accent-foreground hover:bg-accent/90"
           >
             <Check className="h-4 w-4" /> {t("checkout.confirmOrder")}
           </button>

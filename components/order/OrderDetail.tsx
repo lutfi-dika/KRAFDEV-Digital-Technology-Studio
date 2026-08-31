@@ -58,7 +58,7 @@ export default function OrderDetail({ id }: { id: string }) {
         <p className="text-muted">{t("orderDetail.notFound")}</p>
         <Link
           href="/order"
-          className="mt-5 inline-block rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-white hover:bg-accent/90"
+          className="mt-5 inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-foreground hover:bg-accent/90"
         >
           {t("orderDetail.startNew")}
         </Link>
@@ -203,7 +203,7 @@ export default function OrderDetail({ id }: { id: string }) {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white hover:bg-accent/90"
+              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-accent-foreground hover:bg-accent/90"
             >
               <MessageCircle className="h-4 w-4" /> {t("orderDetail.waChat")}
             </a>

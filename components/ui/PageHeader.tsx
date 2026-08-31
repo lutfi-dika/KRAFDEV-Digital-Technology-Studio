@@ -17,7 +17,7 @@ export function PageHeader({
     <header className={`max-w-2xl ${centered ? "mx-auto text-center" : ""} ${className}`}>
       {eyebrow && (
         <p
-          className={`mt-6 mb-2 text-sm font-medium text-accent-strong ${
+          className={`mb-3 text-sm font-medium text-accent-strong ${
             centered ? "text-center" : ""
           }`}
         >

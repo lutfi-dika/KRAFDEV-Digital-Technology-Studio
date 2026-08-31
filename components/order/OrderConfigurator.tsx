@@ -147,7 +147,7 @@ export default function OrderConfigurator() {
                 <span
                   className={`flex h-6 w-6 items-center justify-center rounded-full border text-xs ${
                     done
-                      ? "border-accent bg-accent text-white"
+                      ? "border-accent bg-accent text-accent-foreground"
                       : active
                         ? "border-accent bg-accent/10 text-accent-strong"
                         : "border-border text-muted"
@@ -403,14 +403,14 @@ export default function OrderConfigurator() {
           <button
             type="button"
             onClick={next}
-            className="inline-flex items-center gap-1.5 rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-white hover:bg-accent/90"
+            className="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-foreground hover:bg-accent/90"
           >
             {t("order.continue")} <ArrowRight className="h-4 w-4" />
           </button>
         ) : (
           <button
             type="submit"
-            className="inline-flex items-center gap-1.5 rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-white hover:bg-accent/90"
+            className="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-foreground hover:bg-accent/90"
           >
             {t("order.continueToCheckout")} <ArrowRight className="h-4 w-4" />
           </button>

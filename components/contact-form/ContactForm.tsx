@@ -111,7 +111,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-medium text-white hover:bg-accent/90 sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-medium text-accent-foreground hover:bg-accent/90 sm:w-auto"
       >
         <MessageCircle className="h-4 w-4" /> {t("contactForm.send")}
       </button>

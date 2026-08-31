@@ -32,7 +32,7 @@ export default function ProjectsGrid() {
             role="tab"
             aria-selected={activeIndex === i}
             onClick={() => setActiveIndex(i)}
-            className={`rounded-md border px-3.5 py-1.5 text-sm transition-colors ${
+            className={`rounded-full border px-3.5 py-1.5 text-sm transition-colors ${
               activeIndex === i
                 ? "border-foreground text-foreground"
                 : "border-border text-muted hover:text-foreground"

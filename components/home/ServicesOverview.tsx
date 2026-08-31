@@ -99,7 +99,7 @@ export default function ServicesOverview() {
 
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-5">
               <span className="font-mono text-xs text-muted">
-                {startingPrice} · mulai dari
+                {startingPrice} · {t("common.startingFrom").toLowerCase()}
               </span>
               <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors group-hover:text-accent-strong">
                 {t("common.learnMore")}

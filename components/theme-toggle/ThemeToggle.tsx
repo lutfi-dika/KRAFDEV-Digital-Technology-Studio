@@ -41,7 +41,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={() => mounted && setTheme(cycles[theme ?? "system"].toLowerCase())}
-      className="flex h-9 w-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface hover:text-foreground"
+      className="flex h-9 w-9 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface hover:text-foreground"
       aria-label={`Toggle theme to ${label}`}
       title={`Theme: ${label || "..."}`}
     >
