@@ -29,6 +29,10 @@ export const messages = {
       item1: "Web Development",
       item2: "UI/UX Design",
       item3: "Digital Solutions",
+      strip1: "Web Development",
+      strip2: "UI/UX Design",
+      strip3: "Web Application",
+      strip4: "Digital Solutions",
     },
     trust: {
       title: "Teknologi yang mengubah ide menjadi pengalaman digital.",
@@ -43,7 +47,7 @@ export const messages = {
     },
     homeAbout: {
       eyebrow: "Tentang KRAFDEV",
-      title: "Kami tidak hanya membuat website. Kami membangun solusi digital.",
+      title: "Kami membangun produk digital, bukan sekadar tampilan.",
       desc:
         "KRAFDEV Digital Technology Studio membantu bisnis dan organisasi mengubah ide menjadi produk digital yang modern, scalable, dan mudah digunakan.",
       step1: "Strategi",

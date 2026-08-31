@@ -61,7 +61,7 @@
   --radius-md: var(--radius);
   --font-sans: var(--font-body);
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", monospace;
-  --font-display: var(--font-display);
+  --font-display: var(--font-body);
 }
 
 html {

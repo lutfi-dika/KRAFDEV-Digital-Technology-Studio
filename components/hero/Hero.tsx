@@ -1,7 +1,9 @@
+
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+
 import { useI18n } from "@/components/providers/I18nProvider";
 import { ButtonLink } from "@/components/ui/Button";
 
@@ -12,43 +14,79 @@ export default function Hero() {
   const shouldReduce = useReducedMotion();
 
   return (
-    <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-32 lg:px-8">
+    <section className="border-b border-border bg-background">
+      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
         <motion.div
-          initial={shouldReduce ? { opacity: 1 } : { opacity: 0, y: 16 }}
+          initial={shouldReduce ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: 0.5,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="max-w-5xl"
         >
-          <p className="text-sm font-medium text-accent-strong">{t("hero.badge")}</p>
+          {/* Eyebrow */}
+          <div className="mb-7 flex items-center gap-3">
+            <span className="h-px w-8 bg-accent-strong" />
 
-          <h1 className="mt-6 max-w-4xl text-balance font-display text-4xl font-medium leading-[1.06] tracking-tight text-foreground sm:text-6xl lg:text-[4.25rem]">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-accent-strong">
+              {t("hero.badge")}
+            </p>
+          </div>
+
+          {/* Heading */}
+          <h1 className="max-w-5xl text-balance font-display text-[2.75rem] font-medium leading-[1.04] tracking-[-0.035em] text-foreground sm:text-6xl lg:text-[5.25rem]">
             {t("hero.title")}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-secondary">
+          {/* Description */}
+          <p className="mt-7 max-w-2xl text-base leading-7 text-secondary sm:text-lg">
             {t("hero.subtitle")}
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
-            <ButtonLink href="/order">
+          {/* CTA */}
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <ButtonLink
+              href="/order"
+              className="group"
+            >
               {t("hero.primaryCta")}
-              <ArrowRight className="h-4 w-4" />
+
+              <ArrowUpRight
+                className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              />
             </ButtonLink>
-            <ButtonLink href="/projects" variant="outline">
+
+            <ButtonLink
+              href="/projects"
+              variant="outline"
+            >
               {t("hero.secondaryCta")}
             </ButtonLink>
           </div>
 
-          <ul className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted">
-            {trustItems.map((item, i) => (
-              <li key={item} className="flex items-center gap-3">
-                {i > 0 && <span aria-hidden className="h-1 w-1 rounded-full bg-border" />}
-                {t(`hero.${item}`)}
-              </li>
-            ))}
-          </ul>
+          {/* Trust / Expertise */}
+          <div className="mt-14 border-t border-border pt-5">
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+              <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted">
+                Expertise
+              </span>
+
+              <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
+                {trustItems.map((item) => (
+                  <li
+                    key={item}
+                    className="text-sm text-secondary"
+                  >
+                    {t(`hero.${item}`)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
   );
 }
+

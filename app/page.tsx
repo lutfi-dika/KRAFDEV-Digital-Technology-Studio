@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Hero from "@/components/hero/Hero";
 import AboutSection from "@/components/home/AboutSection";
 import ServicesOverview from "@/components/home/ServicesOverview";
-import ProjectsSection from "@/components/home/ProjectsSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import CtaSection from "@/components/home/CtaSection";
 import { SITE_URL, DEFAULT_DESCRIPTION, OG_IMAGE } from "@/lib/seo";
@@ -39,7 +38,6 @@ export default function Home() {
       <Hero />
       <AboutSection />
       <ServicesOverview />
-      <ProjectsSection />
       <ProcessSection />
       <CtaSection />
     </>
