@@ -22,10 +22,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "KRAFDEV Digital Technology Studio | Web Development & Digital Solutions",
+    default:
+      "KRAFDEV Digital Technology Studio | Web Development & Digital Solutions",
     template: "%s | KRAFDEV",
   },
   description: DEFAULT_DESCRIPTION,
+  // Tambahan konfigurasi icons/favicon agar terdeteksi oleh browser & Google
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/krafdev.png", type: "image/png", sizes: "1024x1024" },
+    ],
+    apple: [{ url: "/krafdev.png", sizes: "1024x1024" }],
+  },
   keywords: [
     "KRAFDEV",
     "KRAFDEV Digital Technology Studio",
@@ -74,13 +83,15 @@ export const metadata: Metadata = {
         alt: "KRAFDEV Digital Technology Studio — Web Development & Digital Solutions",
       },
     ],
-    title: "KRAFDEV Digital Technology Studio | Web Development & Digital Solutions",
+    title:
+      "KRAFDEV Digital Technology Studio | Web Development & Digital Solutions",
     description: DEFAULT_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
     images: [OG_IMAGE],
-    title: "KRAFDEV Digital Technology Studio | Web Development & Digital Solutions",
+    title:
+      "KRAFDEV Digital Technology Studio | Web Development & Digital Solutions",
     description: DEFAULT_DESCRIPTION,
   },
 };
