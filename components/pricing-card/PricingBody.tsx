@@ -24,7 +24,7 @@ export default function PricingBody() {
       <Reveal className="mt-16 border-t border-border py-10">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
           <div className="max-w-xl">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground">
+            <h2 className="font-display text-2xl font-medium tracking-tight text-foreground">
               {t("pricing.customPanelTitle")}
             </h2>
             <p className="mt-2 leading-relaxed text-muted">

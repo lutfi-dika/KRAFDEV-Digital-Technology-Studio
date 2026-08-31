@@ -36,17 +36,17 @@ export default function AboutBody() {
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
       {/* ===== Masthead ===== */}
       <header className="mx-auto max-w-3xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
+        <p className="text-sm font-medium text-accent-strong">
           {t("about.eyebrow")}
         </p>
-        <h1 className="mt-5 text-balance text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl">
+        <h1 className="mt-5 text-balance font-display text-4xl font-medium leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl">
           {t("about.masthead")}
         </h1>
         <p className="mt-6 text-pretty text-lg leading-relaxed text-muted sm:text-xl">
           {t("about.intro")}
         </p>
         <div className="mx-auto mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted">
-          <span className="font-semibold uppercase tracking-widest text-foreground">
+          <span className="font-semibold text-foreground">
             {t("about.studioLabel")}
           </span>
         </div>
@@ -78,10 +78,10 @@ export default function AboutBody() {
       {/* ===== Mengapa KRAFDEV Hadir ===== */}
       <section className="mt-20 grid gap-10 lg:grid-cols-2 lg:items-center">
         <Reveal>
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+          <span className="text-sm font-medium text-accent-strong">
             {t("about.whyEyebrow")}
           </span>
-          <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="mt-4 font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
             {t("about.whyTitle")}
           </h2>
         </Reveal>
@@ -93,10 +93,10 @@ export default function AboutBody() {
       {/* ===== Dirancang Sesuai Bisnis Anda ===== */}
       <section className="mt-20">
         <Reveal className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+          <span className="text-sm font-medium text-accent-strong">
             {t("about.approachEyebrow")}
           </span>
-          <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="mt-4 font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
             {t("about.approachTitle")}
           </h2>
         </Reveal>
@@ -108,7 +108,7 @@ export default function AboutBody() {
                 <Reveal delay={i * 0.04}>
                   <div className="grid gap-2 py-7 sm:grid-cols-[3.5rem_14rem_1fr] sm:gap-6">
                     <span className="font-mono text-sm text-muted tabular-nums">{a.step}</span>
-                    <h3 className="font-semibold uppercase tracking-wider text-foreground sm:text-base">
+                    <h3 className="font-semibold text-foreground sm:text-base">
                       {a.title}
                     </h3>
                     <p className="leading-relaxed text-muted">{a.body}</p>
@@ -123,10 +123,10 @@ export default function AboutBody() {
       {/* ===== Prinsip Utama Kami ===== */}
       <section className="mt-20 border-t border-border pt-16">
         <Reveal className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+          <span className="text-sm font-medium text-accent-strong">
             {t("about.principlesEyebrow")}
           </span>
-          <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="mt-4 font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
             {t("about.principlesTitle")}
           </h2>
         </Reveal>
@@ -137,7 +137,7 @@ export default function AboutBody() {
               <li key={p.step} className="border-b border-border sm:odd:pr-8 sm:even:border-l sm:even:pl-8">
                 <Reveal delay={i * 0.04}>
                   <div className="py-6">
-                    <span className="font-mono text-sm text-muted tabular-nums">{p.step}</span>
+                    <span aria-hidden className="inline-block h-2 w-2 rounded-full bg-line" />
                     <h3 className="mt-3 text-lg font-semibold text-foreground">{p.title}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-muted">{p.body}</p>
                   </div>
@@ -151,10 +151,10 @@ export default function AboutBody() {
       {/* ===== Cara Kami Bekerja ===== */}
       <section className="mt-20 border-t border-border pt-16">
         <Reveal className="max-w-3xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+          <span className="text-sm font-medium text-accent-strong">
             {t("about.workEyebrow")}
           </span>
-          <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="mt-4 font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
             {t("about.workTitle")}
           </h2>
           <p className="mt-4 leading-relaxed text-muted">{t("about.workBody")}</p>
@@ -166,9 +166,7 @@ export default function AboutBody() {
               <li key={s}>
                 <Reveal delay={i * 0.04}>
                   <div className="flex items-center gap-4 py-4 text-sm font-medium text-foreground">
-                    <span className="font-mono text-sm text-muted tabular-nums">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                    <span aria-hidden className="inline-block h-2 w-2 rounded-full bg-line" />
                     {s}
                   </div>
                 </Reveal>
@@ -181,10 +179,10 @@ export default function AboutBody() {
       {/* ===== Nilai ===== */}
       <section className="mt-20 border-t border-border pt-16">
         <Reveal className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+          <span className="text-sm font-medium text-accent-strong">
             {t("about.valuesEyebrow")}
           </span>
-          <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="mt-4 font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
             {t("about.valuesTitle")}
           </h2>
         </Reveal>
@@ -195,7 +193,7 @@ export default function AboutBody() {
               <div key={v.title} className="border-b border-border sm:pr-8">
                 <Reveal delay={i * 0.03}>
                   <div className="py-6">
-                    <dt className="text-sm font-semibold uppercase tracking-wider text-accent">
+                    <dt className="text-sm font-semibold text-accent-strong">
                       {v.title}
                     </dt>
                     <dd className="mt-2 text-sm leading-relaxed text-muted">{v.body}</dd>
@@ -210,17 +208,17 @@ export default function AboutBody() {
       {/* ===== CTA ===== */}
       <section className="mt-20">
         <Reveal>
-          <div className="relative overflow-hidden rounded-2xl bg-accent p-8 text-white sm:p-14">
+          <div className="relative overflow-hidden rounded-2xl bg-foreground p-8 text-background sm:p-14">
             <div
               aria-hidden
-              className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"
+              className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl"
             />
             <div className="relative flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
               <div className="max-w-xl">
-                <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+                <h2 className="font-display text-2xl font-medium tracking-tight text-background sm:text-3xl">
                   {t("about.ctaTitle")}
                 </h2>
-                <p className="mt-3 text-white/85">{t("about.ctaBody")}</p>
+                <p className="mt-3 text-background/80">{t("about.ctaBody")}</p>
               </div>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
                 <ButtonLink href="/order" variant="onAccent">
@@ -229,7 +227,7 @@ export default function AboutBody() {
                 </ButtonLink>
                 <Link
                   href="/projects"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/40 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-background/40 px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-background/10"
                 >
                   {t("about.ctaSecondary")}
                 </Link>

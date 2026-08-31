@@ -3,36 +3,42 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fafafa;
+  --background: #eff1ed;
   --surface: #ffffff;
   --elevated: #ffffff;
-  --foreground: #111111;
-  --secondary: #525252;
-  --muted: #737373;
-  --border: #e5e5e5;
-  --accent: #2563eb;
+  --foreground: #1b2027;
+  --secondary: #3f4752;
+  --muted: #5b636e;
+  --border: rgba(27, 32, 39, 0.12);
+  --accent: #b8763e;
+  --accent-strong: #84490f;
+  --accent-deep: #9a541e;
   --accent-foreground: #ffffff;
-  --ring: rgba(37, 99, 235, 0.35);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 24px 56px -20px rgba(0, 0, 0, 0.16);
-  --radius: 0.75rem;
+  --line: #3f6b63;
+  --ring: rgba(184, 118, 62, 0.45);
+  --shadow-sm: 0 0 0 0 transparent;
+  --shadow-md: 0 0 0 0 transparent;
+  --shadow-lg: 0 0 0 0 transparent;
+  --radius: 0.5rem;
 }
 
 .dark {
-  --background: #09090b;
-  --surface: #111113;
-  --elevated: #18181b;
-  --foreground: #fafafa;
-  --secondary: #a1a1aa;
-  --muted: #71717a;
-  --border: #27272a;
-  --accent: #3b82f6;
-  --accent-foreground: #ffffff;
-  --ring: rgba(59, 130, 246, 0.5);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 10px 28px -10px rgba(0, 0, 0, 0.55);
-  --shadow-lg: 0 24px 56px -20px rgba(0, 0, 0, 0.65);
+  --background: #15181b;
+  --surface: #1e2226;
+  --elevated: #23282d;
+  --foreground: #eff1ed;
+  --secondary: #c3c9cf;
+  --muted: #8f97a0;
+  --border: rgba(237, 241, 237, 0.14);
+  --accent: #d08a45;
+  --accent-strong: #e3a466;
+  --accent-deep: #d08a45;
+  --accent-foreground: #14171a;
+  --line: #7fa99e;
+  --ring: rgba(208, 138, 69, 0.5);
+  --shadow-sm: 0 0 0 0 transparent;
+  --shadow-md: 0 0 0 0 transparent;
+  --shadow-lg: 0 0 0 0 transparent;
 }
 
 @theme inline {
@@ -42,16 +48,20 @@
   --color-foreground: var(--foreground);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-deep: var(--accent-deep);
   --color-accent-foreground: var(--accent-foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-line: var(--line);
   --color-ring: var(--ring);
   --shadow-sm: var(--shadow-sm);
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
   --radius-md: var(--radius);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
 }
 
 html {
@@ -61,10 +71,49 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  font-optical-sizing: auto;
   transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Hand-set grain for a print/paper feel */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.dark .grain {
+  mix-blend-mode: screen;
+}
+
+/* Blueprint tracing-paper grid — signature motif for technical diagrams */
+.blueprint-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--line) 12%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--line) 12%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 28px 28px;
+}
+
+::selection {
+  background: var(--accent-deep);
+  color: var(--accent-foreground);
 }
 
 /* Respect reduced motion preferences */
@@ -95,6 +144,8 @@ body {
   h5,
   h6 {
     color: var(--foreground);
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-optical-sizing: auto;
     letter-spacing: -0.02em;
   }
 }

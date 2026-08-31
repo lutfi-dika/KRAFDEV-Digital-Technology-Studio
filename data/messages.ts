@@ -18,12 +18,15 @@ export const messages = {
       search: "Cari...",
     },
     hero: {
-      badge: "Digital Technology Studio",
       title: "Menciptakan Teknologi Digital untuk Bisnis Modern.",
       subtitle:
         "KRAFDEV membantu bisnis dan organisasi membangun website, aplikasi web, dan solusi digital yang modern, scalable, dan mudah digunakan.",
-      primaryCta: "Mulai Project",
+      primaryCta: "Konfigurasi Project",
       secondaryCta: "Explore Layanan",
+      flow1: "Ide",
+      flow2: "Rancangan",
+      flow3: "Kode",
+      flow4: "Live",
     },
     trust: {
       title: "Teknologi yang mengubah ide menjadi pengalaman digital.",
@@ -38,12 +41,13 @@ export const messages = {
     },
     home: {
       servicesTitle: "Layanan Kami",
-      servicesSubtitle: "Solusi digital lengkap untuk pertumbuhan bisnis Anda.",
+      servicesSubtitle:
+        "Dari konfigurasi harga otomatis sampai ID order dengan status Pending — Anda tahu persis di tahap mana project Anda.",
       viewAll: "Lihat Semua",
       ctaTitle: "Siap membangun sesuatu yang hebat?",
       ctaDesc:
         "Ceritakan tentang project Anda dan kami akan membantu memilih solusi yang tepat. Mulai dengan project configurator.",
-      startProject: "Mulai Project",
+      startProject: "Konfigurasi Project",
       contactUs: "Hubungi Kami",
     },
     footer: {
@@ -437,12 +441,15 @@ export const messages = {
       search: "Search...",
     },
     hero: {
-      badge: "Digital Technology Studio",
       title: "Crafting Digital Technology for Modern Businesses.",
       subtitle:
         "KRAFDEV helps businesses and organizations build websites, web applications, and digital solutions that are modern, scalable, and easy to use.",
-      primaryCta: "Start Project",
+      primaryCta: "Configure Your Project",
       secondaryCta: "Explore Services",
+      flow1: "Idea",
+      flow2: "Design",
+      flow3: "Code",
+      flow4: "Live",
     },
     trust: {
       title: "Technology that turns ideas into digital experiences.",
@@ -457,12 +464,13 @@ export const messages = {
     },
     home: {
       servicesTitle: "Our Services",
-      servicesSubtitle: "Complete digital solutions to grow your business.",
+      servicesSubtitle:
+        "From automatic price configuration to an order ID with Pending status — you always know exactly where your project stands.",
       viewAll: "View All",
       ctaTitle: "Ready to build something great?",
       ctaDesc:
         "Tell us about your project and we'll help you choose the right solution. Start with our project configurator.",
-      startProject: "Start a Project",
+      startProject: "Configure Your Project",
       contactUs: "Contact Us",
     },
     footer: {

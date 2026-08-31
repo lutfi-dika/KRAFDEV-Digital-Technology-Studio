@@ -149,7 +149,7 @@ export default function OrderConfigurator() {
                     done
                       ? "border-accent bg-accent text-white"
                       : active
-                        ? "border-accent bg-accent/10 text-accent"
+                        ? "border-accent bg-accent/10 text-accent-strong"
                         : "border-border text-muted"
                   }`}
                 >

@@ -22,9 +22,9 @@ export default function BlogList() {
             key={c}
             type="button"
             onClick={() => setCategory(c)}
-            className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
+            className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${
               category === c
-                ? "border-accent bg-accent text-white"
+                ? "border-accent-deep bg-accent-deep text-accent-foreground"
                 : "border-border text-muted hover:text-foreground"
             }`}
           >
@@ -41,12 +41,12 @@ export default function BlogList() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="flex flex-col rounded-lg border border-border bg-surface p-6 transition-colors hover:border-accent/50"
+              className="group flex flex-col rounded-lg border border-border bg-surface p-6 transition-colors hover:border-accent/50"
             >
-              <span className="text-xs font-medium uppercase tracking-wide text-accent">
+              <span className="text-xs font-medium text-accent-strong">
                 {post.category}
               </span>
-              <h2 className="mt-3 text-lg font-semibold text-foreground">
+              <h2 className="mt-3 font-display text-lg font-medium tracking-tight text-foreground transition-colors group-hover:text-accent-strong">
                 {post.title}
               </h2>
               <p className="mt-2 line-clamp-3 text-sm text-muted">{post.excerpt}</p>

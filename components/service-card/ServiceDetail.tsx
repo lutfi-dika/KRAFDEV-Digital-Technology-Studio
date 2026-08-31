@@ -34,10 +34,10 @@ export default function ServiceDetail({ slug }: { slug: string }) {
         {/* Hero / main */}
         <div className="lg:col-span-2">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-              KRAFDEV / {service.category}
+            <p className="text-sm font-medium text-accent-strong">
+              KRAFDEV · {service.category}
             </p>
-            <h1 className="mt-4 text-balance text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl">
+            <h1 className="mt-4 font-display text-4xl font-medium leading-[1.05] tracking-tight text-foreground sm:text-5xl">
               {service.title}
             </h1>
             <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted">
@@ -64,15 +64,13 @@ export default function ServiceDetail({ slug }: { slug: string }) {
           <Reveal className="mt-16">
             <h2 className="text-2xl font-semibold text-foreground">{t("serviceDetail.features")}</h2>
             <ul className="mt-6 divide-y divide-border border-y border-border">
-              {service.features.map((f, i) => (
+              {service.features.map((f) => (
                 <li
                   key={f}
                   className="flex items-baseline justify-between gap-6 py-3.5 text-foreground"
                 >
                   <span className="text-sm sm:text-base">{f}</span>
-                  <span className="font-mono text-xs text-muted tabular-nums" aria-hidden>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                  <span aria-hidden className="inline-block h-2 w-2 shrink-0 rounded-full bg-line" />
                 </li>
               ))}
             </ul>
@@ -84,7 +82,7 @@ export default function ServiceDetail({ slug }: { slug: string }) {
           {/* Price — standalone statement, no box */}
           <Reveal>
             <p className="text-sm text-muted">{t("serviceDetail.estimatedStartingPrice")}</p>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-foreground">{startingPrice}</p>
+            <p className="mt-2 font-display text-4xl font-medium tracking-tight text-foreground">{startingPrice}</p>
             <p className="mt-2 text-sm leading-relaxed text-muted">{t("serviceDetail.priceNote")}</p>
             <ButtonLink href="/order" className="mt-5">
               {t("serviceDetail.order")} <ArrowRight className="h-4 w-4" />
@@ -93,13 +91,13 @@ export default function ServiceDetail({ slug }: { slug: string }) {
 
           {/* Process — divider list */}
           <Reveal>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground">
+            <h3 className="text-sm font-semibold text-foreground">
               {t("serviceDetail.process")}
             </h3>
             <ol className="mt-4 divide-y divide-border">
               {processSteps.map((p) => (
                 <li key={p.step} className="grid grid-cols-[2.5rem_1fr] gap-3 py-4">
-                  <span className="font-mono text-sm text-accent tabular-nums">{p.step}</span>
+                  <span className="font-mono text-sm text-accent-strong tabular-nums">{p.step}</span>
                   <div>
                     <p className="text-sm font-medium text-foreground">{p.title}</p>
                     <p className="text-sm text-muted">{p.desc}</p>
@@ -111,7 +109,7 @@ export default function ServiceDetail({ slug }: { slug: string }) {
 
           {/* Technology */}
           <Reveal>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground">
+            <h3 className="text-sm font-semibold text-foreground">
               {t("serviceDetail.technology")}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted">

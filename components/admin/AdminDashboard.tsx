@@ -395,7 +395,7 @@ function OrdersTab({
                     {o.projectType}
                   </span>
                 </div>
-                <p className="font-semibold text-accent">{formatRupiah(o.estimatedPrice)}</p>
+                <p className="font-semibold text-accent-strong">{formatRupiah(o.estimatedPrice)}</p>
               </div>
               <p className="mt-2 text-sm text-foreground">{o.name}</p>
               <p className="text-xs text-muted">

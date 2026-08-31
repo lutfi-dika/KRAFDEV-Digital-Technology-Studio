@@ -34,25 +34,25 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5">
-              <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-md bg-surface">
+              <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full bg-surface ring-1 ring-border">
                 <Image
                   src="/krafdev.png"
                   alt="KRAFDEV logo"
-                  width={32}
-                  height={32}
+                  width={36}
+                  height={36}
                   className="h-full w-full object-cover"
                 />
               </span>
               <div className="flex flex-col leading-none">
-                <span className="text-base font-bold tracking-tight text-foreground">
+                <span className="font-display text-lg font-semibold tracking-tight text-foreground">
                   KRAFDEV
                 </span>
-                <span className="text-[10px] text-muted">
+                <span className="mt-0.5 text-[10px] text-muted">
                   {t("brand.subtitle")}
                 </span>
               </div>
             </div>
-            <p className="mt-4 max-w-xs text-sm text-muted">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
               {t("footer.about")}
             </p>
           </div>
@@ -103,7 +103,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <h3 className="mt-6 text-sm font-semibold text-foreground">
+            <h3 className="mt-7 text-sm font-semibold text-foreground">
               {t("footer.social")}
             </h3>
             <div className="mt-3 flex items-center gap-2">
@@ -114,7 +114,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-8 w-8 items-center justify-center rounded-md text-muted hover:bg-background hover:text-foreground"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent-strong/40 hover:bg-accent/10 hover:text-accent-strong"
                 >
                   <s.icon className="h-4 w-4" />
                 </a>

@@ -9,8 +9,8 @@ export default function ServicesList() {
   const services = getServices(locale);
   return (
     <div className="mt-12">
-      {services.map((service, i) => (
-        <ServiceCard key={service.slug} service={service} index={i + 1} />
+      {services.map((service) => (
+        <ServiceCard key={service.slug} service={service} />
       ))}
     </div>
   );

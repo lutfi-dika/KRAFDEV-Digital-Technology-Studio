@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { Badge } from "./Badge";
 
 export function PageHeader({
   eyebrow,
@@ -17,13 +16,19 @@ export function PageHeader({
   return (
     <header className={`max-w-2xl ${centered ? "mx-auto text-center" : ""} ${className}`}>
       {eyebrow && (
-        <Badge className={centered ? "justify-center" : ""}>{eyebrow}</Badge>
+        <p
+          className={`mt-6 mb-2 text-sm font-medium text-accent-strong ${
+            centered ? "text-center" : ""
+          }`}
+        >
+          {eyebrow}
+        </p>
       )}
-      <h1 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+      <h1 className="font-display text-4xl font-medium leading-[1.05] tracking-tight text-foreground sm:text-5xl">
         {title}
       </h1>
       {description && (
-        <p className={`mt-4 leading-relaxed text-muted ${centered ? "mx-auto" : ""}`}>
+        <p className={`mt-5 max-w-2xl leading-relaxed text-secondary ${centered ? "mx-auto" : ""}`}>
           {description}
         </p>
       )}

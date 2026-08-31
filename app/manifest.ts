@@ -8,13 +8,13 @@ export default function manifest(): MetadataRoute.Manifest {
       "Crafting Digital Technology. Modern websites, software, and digital solutions.",
     start_url: "/",
     display: "standalone",
-    background_color: "#f8fafc",
-    theme_color: "#2563eb",
+    background_color: "#eff1ed",
+    theme_color: "#b8763e",
     icons: [
       {
-        src: "/icon.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: "/krafdev.png",
+        sizes: "1024x1024",
+        type: "image/png",
       },
     ],
   };

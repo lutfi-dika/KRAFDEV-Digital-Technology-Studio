@@ -22,10 +22,10 @@ export default function BlogPostBody({ slug }: { slug: string }) {
       </Link>
 
       <Reveal className="mt-6">
-        <span className="text-xs font-medium uppercase tracking-wide text-accent">
+        <span className="text-xs font-medium text-accent-strong">
           {post.category}
         </span>
-        <h1 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h1 className="mt-3 font-display text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
           {post.title}
         </h1>
         <div className="mt-4 flex items-center gap-3 text-sm text-muted">

@@ -26,14 +26,14 @@ export default function ProjectDetail({ slug }: { slug: string }) {
         className="mt-6 flex aspect-[16/9] items-center justify-center rounded-xl"
         style={{ backgroundColor: project.imageHex }}
       >
-        <span className="text-3xl font-bold text-white/90">{project.title}</span>
+        <span className="font-display text-3xl font-medium text-white/90">{project.title}</span>
       </div>
 
-      <h1 className="mt-8 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+      <h1 className="mt-8 font-display text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
         {project.title}
       </h1>
       <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-muted">
-        <span className="font-medium uppercase tracking-wide text-accent">
+        <span className="font-medium text-accent-strong">
           {project.category}
         </span>
         <span>· {project.year}</span>
@@ -42,7 +42,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-accent hover:underline"
+            className="inline-flex items-center gap-1 text-accent-strong hover:underline"
           >
             {t("projects.liveDemo")} <ExternalLink className="h-3.5 w-3.5" />
           </a>

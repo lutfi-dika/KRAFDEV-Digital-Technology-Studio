@@ -58,13 +58,13 @@ function FeaturedProject({ project, index }: { project: GoogleSheetsProject; ind
       {/* Content */}
       <div className="flex flex-col justify-between p-7 sm:p-9">
         <div>
-          <p className="font-mono text-xs uppercase tracking-wider text-muted">
+          <span className="text-xs text-muted">
             {t("projects.projectLabel")} / {String(index + 1).padStart(2, "0")}
-          </p>
-          <span className="mt-4 inline-block text-xs font-medium uppercase tracking-wide text-accent">
+          </span>
+          <span className="mt-4 inline-block text-xs font-medium text-accent-strong">
             {project.category}
           </span>
-          <h3 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+          <h3 className="mt-2 font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
             {project.name}
           </h3>
           <p className="mt-3 max-w-prose leading-relaxed text-muted">
@@ -73,19 +73,19 @@ function FeaturedProject({ project, index }: { project: GoogleSheetsProject; ind
 
           <dl className="mt-6 grid grid-cols-3 gap-x-6 gap-y-4 border-t border-border pt-5">
             <div>
-              <dt className="text-[11px] uppercase tracking-wide text-muted">
+              <dt className="text-xs text-muted">
                 {t("projects.projectLabel")}
               </dt>
               <dd className="mt-1 text-sm font-medium text-foreground">{project.category}</dd>
             </div>
             <div>
-              <dt className="text-[11px] uppercase tracking-wide text-muted">
+              <dt className="text-xs text-muted">
                 {t("projects.yearLabel")}
               </dt>
               <dd className="mt-1 text-sm font-medium text-foreground">{project.year}</dd>
             </div>
             <div>
-              <dt className="text-[11px] uppercase tracking-wide text-muted">
+              <dt className="text-xs text-muted">
                 {t("projects.statusLabel")}
               </dt>
               <dd className="mt-1 text-sm font-medium text-foreground">{project.status}</dd>
@@ -95,7 +95,7 @@ function FeaturedProject({ project, index }: { project: GoogleSheetsProject; ind
 
         <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
           {t("projects.viewCaseStudy")}
-          <span className="text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent">
+          <span className="text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent-strong">
             <ExternalLink className="h-4 w-4" />
           </span>
         </div>
@@ -112,13 +112,13 @@ function CompactProject({ project, index }: { project: GoogleSheetsProject; inde
       className="group flex flex-col rounded-xl border border-border bg-surface p-6 transition-colors hover:border-foreground/25"
     >
       <div className="flex items-center justify-between text-xs">
-        <span className="font-mono uppercase tracking-wider text-muted">
+        <span className="text-muted">
           {t("projects.projectLabel")} {String(index + 1).padStart(2, "0")}
         </span>
         <span className="text-muted tabular-nums">{project.year}</span>
       </div>
 
-      <span className="mt-4 text-xs font-medium uppercase tracking-wide text-accent">
+      <span className="mt-4 text-xs font-medium text-accent-strong">
         {project.category}
       </span>
       <h3 className="mt-1.5 text-xl font-semibold tracking-tight text-foreground">
@@ -140,7 +140,7 @@ function CompactProject({ project, index }: { project: GoogleSheetsProject; inde
       </div>
 
       <div className="mt-auto pt-5">
-        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-accent">
+        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-accent-strong">
           {t("projects.viewProject")}
           <span className="text-muted transition-transform duration-200 group-hover:translate-x-0.5">
             <ArrowIcon />
@@ -211,7 +211,7 @@ export default function GoogleSheetsProjects() {
             onClick={() => setActiveFilter(cat)}
             className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
               activeFilter === cat
-                ? "border-accent bg-accent text-white"
+                ? "border-foreground bg-foreground text-background"
                 : "border-border text-muted hover:text-foreground"
             }`}
           >

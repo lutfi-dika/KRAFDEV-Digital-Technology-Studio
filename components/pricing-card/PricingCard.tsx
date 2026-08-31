@@ -18,21 +18,21 @@ export default function PricingCard({ tier }: { tier: PricingTier }) {
 
   return (
     <div
-      className={`relative flex flex-col rounded-xl border p-6 transition-shadow ${
+      className={`relative flex flex-col rounded-xl border p-6 ${
         tier.featured
-          ? "border-accent bg-surface shadow-md"
+          ? "border-accent-strong/60 bg-surface ring-1 ring-accent-strong/20"
           : "border-border bg-surface"
       }`}
     >
       {tier.featured && (
-        <span className="absolute -top-3 left-6 rounded-full bg-accent px-3 py-0.5 text-xs font-medium text-white">
+        <span className="absolute -top-3 left-6 rounded-full bg-accent-deep px-3 py-0.5 text-[11px] font-semibold text-accent-foreground">
           {t("common.mostPopular")}
         </span>
       )}
-      <h3 className="text-lg font-semibold text-foreground">{tier.name}</h3>
+      <h3 className="font-display text-xl font-medium tracking-tight text-foreground">{tier.name}</h3>
       <p className="mt-1 text-sm text-muted">{tier.description}</p>
       <div className="mt-5 flex items-end gap-1">
-        <span className="text-3xl font-bold tabular-nums tracking-tight text-foreground">
+        <span className="font-display text-3xl font-medium tabular-nums tracking-tight text-foreground">
           {formatPrice(tier.price)}
         </span>
         {tier.price !== "Custom" && (

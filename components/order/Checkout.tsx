@@ -225,7 +225,7 @@ export default function Checkout() {
             )}
             <div className="border-t border-border pt-3 mt-3 flex justify-between">
               <span className="font-medium text-foreground">{t("checkout.estimatedTotal")}</span>
-              <span className="font-bold text-accent">{formatRupiah(price)}</span>
+              <span className="font-bold text-accent-strong">{formatRupiah(price)}</span>
             </div>
           </div>
           <button

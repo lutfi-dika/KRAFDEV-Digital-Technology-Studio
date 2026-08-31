@@ -1,7 +1,6 @@
 "use client";
 
 import { useI18n } from "@/components/providers/I18nProvider";
-import { Reveal } from "@/components/ui/Reveal";
 
 const pillars = [
   { key: "pillar1", descKey: "pillar1Desc" },
@@ -14,33 +13,32 @@ export default function TrustSection() {
 
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
-        <Reveal>
-          <h2 className="mx-auto max-w-2xl text-balance text-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-end">
+          <h2 className="max-w-xl font-display text-3xl font-medium leading-[1.05] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             {t("trust.title")}
           </h2>
-        </Reveal>
-
-        <Reveal className="mt-6" delay={0.05}>
-          <p className="mx-auto max-w-2xl text-pretty text-center leading-relaxed text-muted">
+          <p className="max-w-lg leading-relaxed text-secondary lg:ml-auto lg:text-lg">
             {t("trust.statement")}
           </p>
-        </Reveal>
+        </div>
 
-        <Reveal className="mt-14" delay={0.1}>
-          <div className="grid gap-10 divide-y divide-border sm:grid-cols-3 sm:gap-8 sm:divide-y-0 sm:divide-x">
-            {pillars.map((p) => (
-              <div key={p.key} className="text-center sm:px-6">
-                <div className="text-lg font-semibold tracking-tight text-foreground">
-                  {t(`trust.${p.key}`)}
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {t(`trust.${p.descKey}`)}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+        <div className="mt-16 grid border-t border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
+          {pillars.map((p) => (
+            <div
+              key={p.key}
+              className="border-b border-border py-8 pr-6 last:border-b-0 sm:border-b-0 sm:py-10 sm:pl-6 first:sm:pl-0"
+            >
+              <span aria-hidden className="inline-block h-2 w-2 rounded-full bg-line" />
+              <h3 className="mt-4 font-display text-xl font-medium text-foreground">
+                {t(`trust.${p.key}`)}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                {t(`trust.${p.descKey}`)}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
