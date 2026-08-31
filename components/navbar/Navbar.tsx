@@ -4,10 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, ArrowRight } from "lucide-react";
 import { useI18n } from "@/components/providers/I18nProvider";
 import { mainNav } from "@/data";
-import DigitalClock from "@/components/digital-clock/DigitalClock";
 import ThemeToggle from "@/components/theme-toggle/ThemeToggle";
 import LanguageSwitcher from "@/components/language-switcher/LanguageSwitcher";
 
@@ -33,17 +32,19 @@ export default function Navbar({ onSearch }: { onSearch: () => void }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const isActive = (href: string) =>
-    pathname === href || pathname.startsWith(href + "/");
+  const isActive = (href: string) => {
+    if (href.startsWith("/#")) return pathname === "/";
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/70 transition-[border-color,background-color] ${
+      className={`sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md transition-all duration-300 supports-[backdrop-filter]:bg-background/80 ${
         scrolled ? "shadow-sm" : ""
       }`}
     >
       <nav
-        className={`mx-auto flex max-w-6xl items-center gap-4 px-4 transition-all sm:px-6 lg:px-8 ${
+        className={`mx-auto flex max-w-6xl items-center gap-4 px-4 transition-all duration-300 sm:px-6 lg:px-8 ${
           scrolled ? "h-14" : "h-16"
         }`}
       >
@@ -51,11 +52,12 @@ export default function Navbar({ onSearch }: { onSearch: () => void }) {
           href="/"
           className="flex shrink-0 items-center gap-2.5"
           onClick={() => setOpen(false)}
+          aria-label="KRAFDEV — home"
         >
-          <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full bg-surface ring-1 ring-border">
+          <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full bg-surface ring-1 ring-border">
             <Image
               src="/krafdev.png"
-              alt="KRAFDEV logo"
+              alt="KRAFDEV Digital Technology Studio"
               width={32}
               height={32}
               priority
@@ -63,11 +65,8 @@ export default function Navbar({ onSearch }: { onSearch: () => void }) {
             />
           </span>
           <span className="flex flex-col leading-none">
-            <span className="font-display text-lg font-semibold tracking-tight text-foreground">
-              KRAFDEV
-            </span>
-            <span className="mt-0.5 text-[10px] text-muted">
-              {t("brand.subtitle")}
+            <span className="text-[15px] font-semibold tracking-tight text-foreground">
+              {t("brand.name")}
             </span>
           </span>
         </Link>
@@ -77,22 +76,29 @@ export default function Navbar({ onSearch }: { onSearch: () => void }) {
             <Link
               key={item.href}
               href={item.href}
-              className={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+              className={`rounded-full px-3.5 py-2 text-[14px] font-medium transition-colors ${
                 isActive(item.href)
                   ? "text-accent-strong"
-                  : "text-muted hover:text-accent-strong"
+                  : "text-muted hover:text-foreground"
               }`}
             >
               {t(`nav.${item.label.toLowerCase()}`)}
             </Link>
           ))}
+          <Link
+            href="/order"
+            className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-[14px] font-medium text-accent-foreground transition-colors hover:bg-accent/90"
+          >
+            {t("nav.startProject")}
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
         </div>
 
-        <div className="ml-auto flex items-center gap-1 lg:ml-3">
+        <div className="flex items-center gap-1 lg:ml-2">
           <button
             type="button"
             onClick={onSearch}
-            className="hidden h-9 items-center gap-2 rounded-full border border-border bg-surface/50 pl-3.5 pr-2 text-sm text-muted transition-colors hover:text-foreground sm:flex"
+            className="hidden h-9 items-center gap-2 rounded-full border border-border bg-surface/50 px-3.5 text-sm text-muted transition-colors hover:text-foreground sm:flex"
             aria-label="Open search"
           >
             <Search className="h-4 w-4" />
@@ -119,43 +125,43 @@ export default function Navbar({ onSearch }: { onSearch: () => void }) {
           className="flex h-10 w-10 items-center justify-center rounded-full text-foreground lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
 
-      <div className="mx-auto hidden max-w-6xl items-center justify-between border-t border-border px-6 py-1.5 lg:flex">
-        <DigitalClock />
-        <span className="text-sm text-muted">{t("brand.tagline")}</span>
-      </div>
-
-      {open && (
-        <div className="border-t border-border bg-background px-4 py-3 lg:hidden">
-          <div className="flex flex-col gap-0.5">
-            {mainNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className={`rounded-full px-3 py-2.5 text-[15px] transition-colors ${
-                  isActive(item.href)
-                    ? "bg-surface font-medium text-accent-strong"
-                    : "text-muted hover:text-accent-strong"
-                }`}
-              >
-                {t(`nav.${item.label.toLowerCase()}`)}
-              </Link>
-            ))}
-            <div className="mt-2 flex items-center justify-between border-t border-border pt-3">
-              <DigitalClock />
-              <span className="flex items-center gap-1">
-                <LanguageSwitcher />
-                <ThemeToggle />
-              </span>
-            </div>
-          </div>
+      <div
+        id="mobile-menu"
+        className={`overflow-hidden border-t border-border bg-background transition-[max-height,opacity] duration-300 ease-out lg:hidden ${
+          open ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3 sm:px-6">
+          {mainNav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className={`rounded-xl px-4 py-3 text-[15px] transition-colors ${
+                isActive(item.href)
+                  ? "bg-surface font-medium text-foreground"
+                  : "text-muted hover:text-foreground"
+              }`}
+            >
+              {t(`nav.${item.label.toLowerCase()}`)}
+            </Link>
+          ))}
+          <Link
+            href="/order"
+            onClick={() => setOpen(false)}
+            className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-full bg-accent px-4 py-3 text-[15px] font-medium text-accent-foreground transition-colors hover:bg-accent/90"
+          >
+            {t("nav.startProject")}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
-      )}
+      </div>
     </header>
   );
 }

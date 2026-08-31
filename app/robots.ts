@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/order", "/checkout", "/order/"],
+      disallow: ["/admin", "/api", "/order", "/checkout", "/order/"],
     },
     sitemap: "https://krafdevdigitaltechnologystudio.my.id/sitemap.xml",
   };

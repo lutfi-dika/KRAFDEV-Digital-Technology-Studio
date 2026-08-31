@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "FAQ",
   description:
     "Frequently asked questions about KRAFDEV services, pricing, timelines, and process.",
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 export default function FaqPage() {

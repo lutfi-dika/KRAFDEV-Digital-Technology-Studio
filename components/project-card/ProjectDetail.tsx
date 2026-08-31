@@ -27,7 +27,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
         {project.image ? (
           <Image
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} — KRAFDEV Digital Technology Studio`}
             width={1200}
             height={630}
             className="aspect-[16/9] w-full object-cover"
@@ -85,7 +85,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
         <h2 className="text-lg font-semibold text-foreground">{t("projects.ctaTitle")}</h2>
         <p className="mt-2 text-sm text-muted">{t("projects.ctaDesc")}</p>
         <div className="mt-5">
-          <ButtonLink href="/order">{t("home.startProject")}</ButtonLink>
+          <ButtonLink href="/order">{t("nav.startProject")}</ButtonLink>
         </div>
       </Reveal>
     </div>

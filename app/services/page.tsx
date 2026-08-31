@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Explore KRAFDEV services: website development, company profile, landing page, dashboard & web application, UI/UX design, and SEO & performance.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesPage() {

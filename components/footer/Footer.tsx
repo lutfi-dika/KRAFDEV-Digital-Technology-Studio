@@ -21,7 +21,7 @@ export default function Footer() {
     { href: "/pricing", label: t("nav.pricing") },
     { href: "/blog", label: t("nav.blog") },
     { href: "/faq", label: "FAQ" },
-    { href: "/order", label: t("order.stepService") },
+    { href: "/order", label: t("nav.startProject") },
   ];
 
   const socials = [
@@ -37,7 +37,7 @@ export default function Footer() {
               <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full bg-surface ring-1 ring-border">
                 <Image
                   src="/krafdev.png"
-                  alt="KRAFDEV logo"
+                  alt="KRAFDEV Digital Technology Studio"
                   width={36}
                   height={36}
                   className="h-full w-full object-cover"
@@ -54,6 +54,9 @@ export default function Footer() {
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
               {t("footer.about")}
+            </p>
+            <p className="mt-3 text-sm font-medium text-foreground">
+              {t("footer.location")}
             </p>
           </div>
 
@@ -125,7 +128,7 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-xs text-muted sm:flex-row">
           <p>
-            &copy; 2026 KRAFDEV. {t("footer.rights")}
+            &copy; 2026 KRAFDEV Digital Technology Studio. {t("footer.rights")}
           </p>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-foreground">

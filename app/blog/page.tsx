@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Blog",
   description:
     "Insights and articles from KRAFDEV on web development, technology, UI/UX, and business.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default function BlogPage() {

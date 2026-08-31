@@ -15,11 +15,11 @@ export type NavItem = {
 };
 
 export const mainNav: NavItem[] = [
-  { href: "/about", label: "About" },
+  { href: "/#about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/projects", label: "Projects" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/blog", label: "Blog" },
+  { href: "/#process", label: "Process" },
+  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 

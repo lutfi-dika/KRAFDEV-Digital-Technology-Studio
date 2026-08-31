@@ -3,39 +3,39 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #eff1ed;
-  --surface: #ffffff;
+  --background: #ffffff;
+  --surface: #f7f7f5;
   --elevated: #ffffff;
-  --foreground: #1b2027;
-  --secondary: #3f4752;
-  --muted: #5b636e;
-  --border: rgba(27, 32, 39, 0.12);
-  --accent: #0350ba;
-  --accent-strong: #01337e;
-  --accent-deep: #0350ba;
+  --foreground: #111111;
+  --secondary: #525252;
+  --muted: #6f6f6f;
+  --border: #e5e5e5;
+  --accent: #2f5fa8;
+  --accent-strong: #1f4376;
+  --accent-deep: #2f5fa8;
   --accent-foreground: #ffffff;
-  --line: #3a6a9e;
-  --ring: rgba(3, 80, 186, 0.4);
+  --line: #2f5fa8;
+  --ring: rgba(47, 95, 168, 0.35);
   --shadow-sm: 0 0 0 0 transparent;
   --shadow-md: 0 0 0 0 transparent;
   --shadow-lg: 0 0 0 0 transparent;
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 }
 
 .dark {
-  --background: #15181b;
-  --surface: #1e2226;
-  --elevated: #23282d;
-  --foreground: #eff1ed;
-  --secondary: #c3c9cf;
-  --muted: #8f97a0;
-  --border: rgba(237, 241, 237, 0.14);
-  --accent: #6e9fec;
-  --accent-strong: #8fb6f5;
-  --accent-deep: #6e9fec;
-  --accent-foreground: #14171a;
-  --line: #7ca3d8;
-  --ring: rgba(110, 159, 236, 0.5);
+  --background: #101214;
+  --surface: #17191c;
+  --elevated: #1c1f23;
+  --foreground: #f4f6f8;
+  --secondary: #c2c7cc;
+  --muted: #9aa3ac;
+  --border: rgba(244, 246, 248, 0.14);
+  --accent: #9db8f2;
+  --accent-strong: #c4d4f8;
+  --accent-deep: #7c9ce8;
+  --accent-foreground: #0e1420;
+  --line: #9db8f2;
+  --ring: rgba(157, 184, 242, 0.45);
   --shadow-sm: 0 0 0 0 transparent;
   --shadow-md: 0 0 0 0 transparent;
   --shadow-lg: 0 0 0 0 transparent;
@@ -60,12 +60,17 @@
   --shadow-lg: var(--shadow-lg);
   --radius-md: var(--radius);
   --font-sans: var(--font-body);
-  --font-mono: var(--font-mono);
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", monospace;
   --font-display: var(--font-display);
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Offset anchor targets below the sticky navbar */
+[id] {
+  scroll-margin-top: 4.5rem;
 }
 
 body {
@@ -78,37 +83,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-
-/* Hand-set grain for a print/paper feel */
-.grain {
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  pointer-events: none;
-  opacity: 0.04;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.dark .grain {
-  mix-blend-mode: screen;
-}
-
-/* Blueprint tracing-paper grid — signature motif for technical diagrams */
-.blueprint-grid {
-  background-image:
-    linear-gradient(
-      to right,
-      color-mix(in srgb, var(--line) 12%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--line) 12%, transparent) 1px,
-      transparent 1px
-    );
-  background-size: 28px 28px;
 }
 
 ::selection {
@@ -134,6 +108,19 @@ body {
 :focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
+}
+
+/* Vertical section rhythm — desktop 112px, mobile 72px */
+.section-pad {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+@media (min-width: 640px) {
+  .section-pad {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
 }
 
 @layer base {

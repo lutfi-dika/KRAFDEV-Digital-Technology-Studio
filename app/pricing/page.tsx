@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Pricing",
   description:
     "Transparent pricing for website packages, web applications, and digital products from KRAFDEV.",
+  alternates: {
+    canonical: "/pricing",
+  },
 };
 
 export default function PricingPage() {

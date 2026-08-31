@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Tentang KRAFDEV",
   description:
     "KRAFDEV Digital Technology Studio — studio teknologi digital yang membangun website, aplikasi web, desain UI/UX, dan SEO & performa untuk membantu bisnis tumbuh.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

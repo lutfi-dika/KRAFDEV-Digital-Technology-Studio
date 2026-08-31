@@ -17,7 +17,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         {project.image ? (
           <Image
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} — KRAFDEV Digital Technology Studio`}
             width={1200}
             height={630}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"

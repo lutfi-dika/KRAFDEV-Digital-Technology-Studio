@@ -48,7 +48,7 @@ export default function PricingCard({ tier }: { tier: PricingTier }) {
 
         <div className="mt-8 border-t border-border pt-5">
           {tier.price !== "Custom" && (
-            <p className="font-mono text-[11px] text-muted">{t("common.perProject")}</p>
+            <p className="text-sm text-muted">{t("common.startingFrom")}</p>
           )}
           <p className="mt-1 font-display text-3xl font-medium tabular-nums tracking-tight text-foreground">
             {formatPrice(tier.price)}
@@ -61,7 +61,7 @@ export default function PricingCard({ tier }: { tier: PricingTier }) {
             variant={tier.featured ? "primary" : "outline"}
             className="mt-5 w-full"
           >
-            {t("common.choose")} {tier.name}
+            {t("common.discuss")}
           </ButtonLink>
         </div>
       </div>

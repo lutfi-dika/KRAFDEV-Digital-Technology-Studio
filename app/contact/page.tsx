@@ -8,7 +8,10 @@ import { Container } from "@/components/ui/Container";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with KRAFDEV Digital Technology Studio via WhatsApp.",
+    "Hubungi KRAFDEV Digital Technology Studio untuk konsultasi pembuatan website, aplikasi web, landing page, dan solusi digital.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const contacts = [
