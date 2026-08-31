@@ -20,7 +20,7 @@ export const messages = {
       search: "Cari...",
     },
     hero: {
-      badge: "KRAFDEV — Digital Technology Studio",
+      badge: "KRAFDEV Digital Technology Studio",
       title: "Membangun pengalaman digital untuk bisnis yang terus berkembang.",
       subtitle:
         "Kami membantu bisnis membangun website, aplikasi web, dan produk digital yang cepat, modern, dan mudah digunakan.",
@@ -482,7 +482,7 @@ export const messages = {
       search: "Search...",
     },
     hero: {
-      badge: "KRAFDEV — Digital Technology Studio",
+      badge: "KRAFDEV Digital Technology Studio",
       title: "Building digital experiences that move businesses forward.",
       subtitle:
         "We help businesses build websites, web applications, and digital products that are fast, modern, and easy to use.",

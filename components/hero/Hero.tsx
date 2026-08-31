@@ -27,8 +27,6 @@ export default function Hero() {
         >
           {/* Eyebrow */}
           <div className="mb-7 flex items-center gap-3">
-            <span className="h-px w-8 bg-accent-strong" />
-
             <p className="text-xs font-medium uppercase tracking-[0.16em] text-accent-strong">
               {t("hero.badge")}
             </p>
