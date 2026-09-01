@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useI18n, type Locale } from "@/components/providers/I18nProvider";
 
 const options: { value: Locale; label: string }[] = [
@@ -9,18 +10,30 @@ const options: { value: Locale; label: string }[] = [
 
 export default function LanguageSwitcher() {
   const { locale, setLocale } = useI18n();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const activeLocale = mounted ? locale : "id";
 
   return (
-    <div className="flex items-center gap-0.5 rounded-full p-0.5" role="radiogroup" aria-label="Language">
+    <div
+      className="flex items-center gap-0.5 rounded-full p-0.5"
+      role="radiogroup"
+      aria-label="Language"
+      suppressHydrationWarning
+    >
       {options.map((opt) => (
         <button
           key={opt.value}
           type="button"
           role="radio"
-          aria-checked={locale === opt.value}
+          aria-checked={activeLocale === opt.value}
           onClick={() => setLocale(opt.value)}
           className={`rounded-full px-2 py-1 text-sm transition-colors ${
-            locale === opt.value
+            activeLocale === opt.value
               ? "bg-surface text-foreground"
               : "text-muted hover:text-foreground"
           }`}

@@ -1,26 +1,16 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { useSyncExternalStore } from "react";
 import { Sun, Moon, Monitor } from "lucide-react";
-
-const emptySubscribe = () => () => {};
-
-function getMountedSnapshot() {
-  return typeof window !== "undefined";
-}
-
-function getMountedServerSnapshot() {
-  return false;
-}
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const mounted = useSyncExternalStore(
-    emptySubscribe,
-    getMountedSnapshot,
-    getMountedServerSnapshot,
-  );
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const cycles: Record<string, string> = {
     light: "System",
@@ -28,24 +18,31 @@ export default function ThemeToggle() {
     dark: "Light",
   };
 
-  const Icon = !mounted
-    ? null
-    : theme === "dark"
+  const safeTheme = theme ?? "system";
+  const label = mounted ? cycles[safeTheme] : "System";
+  const Icon = mounted
+    ? safeTheme === "dark"
       ? Moon
-      : theme === "light"
+      : safeTheme === "light"
         ? Sun
-        : Monitor;
-  const label = !mounted ? "" : cycles[theme ?? "system"];
+        : Monitor
+    : Monitor;
+
+  const handleToggle = () => {
+    if (!mounted) return;
+    setTheme(cycles[safeTheme].toLowerCase());
+  };
 
   return (
     <button
       type="button"
-      onClick={() => mounted && setTheme(cycles[theme ?? "system"].toLowerCase())}
+      onClick={handleToggle}
       className="flex h-9 w-9 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface hover:text-foreground"
       aria-label={`Toggle theme to ${label}`}
-      title={`Theme: ${label || "..."}`}
+      title={`Theme: ${label}`}
+      suppressHydrationWarning
     >
-      {Icon ? <Icon className="h-[18px] w-[18px]" /> : <span className="h-[18px] w-[18px]" />}
+      <Icon className="h-[18px] w-[18px]" />
     </button>
   );
 }

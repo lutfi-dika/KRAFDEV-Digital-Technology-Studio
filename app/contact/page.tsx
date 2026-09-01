@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MessageCircle } from "lucide-react";
+import { GitBranch, Mail, MessageCircle } from "lucide-react";
 import ContactForm from "@/components/contact-form/ContactForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { PageHeaderI18n } from "@/components/ui/PageHeaderI18n";
@@ -15,7 +15,24 @@ export const metadata: Metadata = {
 };
 
 const contacts = [
-  { label: "WhatsApp", value: "+62 851-3597-7841", href: "https://wa.me/6285135977841", icon: MessageCircle },
+  {
+    label: "WhatsApp",
+    value: "+62 851-3597-7841",
+    href: "https://wa.me/6285135977841",
+    icon: MessageCircle,
+  },
+  {
+    label: "Email",
+    value: "krafdevdigitaltechnologystudio@gmail.com",
+    href: "mailto:krafdevdigitaltechnologystudio@gmail.com",
+    icon: Mail,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/lutfi-dika/KRAFDEV-Digital-Technology-Studio",
+    href: "https://github.com/lutfi-dika/KRAFDEV-Digital-Technology-Studio",
+    icon: GitBranch,
+  },
 ];
 
 export default function ContactPage() {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { MessageCircle } from "lucide-react";
+import { GitBranch, Mail, MessageCircle } from "lucide-react";
 import { useI18n } from "@/components/providers/I18nProvider";
 import { getServices } from "@/data";
 
@@ -25,7 +25,17 @@ export default function Footer() {
   ];
 
   const socials = [
-    { href: "https://wa.me/6285135977841", label: "WhatsApp", icon: MessageCircle },
+    {
+      href: "https://wa.me/6285135977841",
+      label: "WhatsApp",
+      icon: MessageCircle,
+    },
+    { href: "mailto:hello@krafdevstudio.com", label: "Email", icon: Mail },
+    {
+      href: "https://github.com/lutfi-dika/KRAFDEV-Digital-Technology-Studio",
+      label: "GitHub",
+      icon: GitBranch,
+    },
   ];
 
   return (
@@ -67,7 +77,10 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               {companyLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-muted hover:text-foreground">
+                  <Link
+                    href={l.href}
+                    className="text-sm text-muted hover:text-foreground"
+                  >
                     {l.label}
                   </Link>
                 </li>
@@ -100,7 +113,10 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               {resourceLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-muted hover:text-foreground">
+                  <Link
+                    href={l.href}
+                    className="text-sm text-muted hover:text-foreground"
+                  >
                     {l.label}
                   </Link>
                 </li>
