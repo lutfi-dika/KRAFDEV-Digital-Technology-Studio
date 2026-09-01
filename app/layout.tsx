@@ -12,6 +12,8 @@ import {
   BRAND_SHORT,
   DEFAULT_DESCRIPTION,
   OG_IMAGE,
+  PRIMARY_KEYWORDS,
+  LOCAL_SEO_DESCRIPTION,
 } from "@/lib/seo";
 
 const inter = Inter({
@@ -23,11 +25,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "KRAFDEV Digital Technology Studio | Web Development & Digital Solutions",
+      "Jasa Pembuatan Website, Landing Page & Web App di Indonesia | KRAFDEV",
     template: "%s | KRAFDEV",
   },
   description: DEFAULT_DESCRIPTION,
-  // Tambahan konfigurasi icons/favicon agar terdeteksi oleh browser & Google
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -38,25 +39,21 @@ export const metadata: Metadata = {
   keywords: [
     "KRAFDEV",
     "KRAFDEV Digital Technology Studio",
-    "digital technology studio",
-    "jasa pembuatan website",
-    "jasa buat website",
-    "pembuatan website indonesia",
-    "jasa web development",
-    "jasa landing page",
-    "jasa company profile website",
-    "pembuatan aplikasi web",
-    "jasa dashboard",
-    "jasa UI/UX design",
-    "jasa SEO website",
-    "web development jakarta",
-    "aplikasi web indonesia",
+    ...PRIMARY_KEYWORDS,
+    "jasa website jakarta",
+    "jasa website di jakarta",
+    "jasa web developer indonesia",
+    "jasa pembuatan aplikasi web",
+    "digital agency indonesia",
   ],
   category: "technology",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
+  },
+  alternates: {
+    canonical: SITE_URL,
   },
   robots: {
     index: true,
@@ -80,26 +77,26 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "KRAFDEV Digital Technology Studio — Web Development & Digital Solutions",
+        alt: "KRAFDEV Digital Technology Studio — Jasa Website, Landing Page & Web App Indonesia",
       },
     ],
     title:
-      "KRAFDEV Digital Technology Studio | Web Development & Digital Solutions",
-    description: DEFAULT_DESCRIPTION,
+      "Jasa Pembuatan Website, Landing Page & Web App di Indonesia | KRAFDEV",
+    description: LOCAL_SEO_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
     images: [OG_IMAGE],
     title:
-      "KRAFDEV Digital Technology Studio | Web Development & Digital Solutions",
-    description: DEFAULT_DESCRIPTION,
+      "Jasa Pembuatan Website, Landing Page & Web App di Indonesia | KRAFDEV",
+    description: LOCAL_SEO_DESCRIPTION,
   },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const organizationLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     name: BRAND_NAME,
     alternateName: BRAND_SHORT,
     url: SITE_URL,
@@ -115,9 +112,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       width: 1024,
       height: 1024,
     },
-    description:
-      "KRAFDEV Digital Technology Studio — jasa pembuatan website, aplikasi web, dashboard, landing page, UI/UX design, dan SEO & performance untuk bisnis Indonesia.",
-    areaServed: "Indonesia",
+    description: LOCAL_SEO_DESCRIPTION,
+    email: "krafdevdigitaltechnologystudio@gmail.com",
+    telephone: "+62 851-3597-7841",
+    priceRange: "$$",
+    areaServed: ["Indonesia", "Jakarta", "Bandung", "Surabaya", "Bali"],
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "ID",
+    },
     availableLanguage: ["Indonesian", "English"],
     knowsAbout: [
       "Website Development",
@@ -157,6 +160,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     inLanguage: ["id", "en"],
     description: DEFAULT_DESCRIPTION,
     publisher: { "@type": "Organization", name: BRAND_NAME, url: SITE_URL },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${SITE_URL}/?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
   };
 
   const homepageLd = {

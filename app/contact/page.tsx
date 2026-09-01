@@ -6,12 +6,19 @@ import { PageHeaderI18n } from "@/components/ui/PageHeaderI18n";
 import { Container } from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Hubungi KRAFDEV | Konsultasi Website, Landing Page & SEO Indonesia",
   description:
-    "Hubungi KRAFDEV Digital Technology Studio untuk konsultasi pembuatan website, aplikasi web, landing page, dan solusi digital.",
+    "Konsultasi gratis jasa pembuatan website, landing page, aplikasi web, dashboard, UI/UX, dan SEO di Indonesia. Hubungi KRAFDEV sekarang.",
   alternates: {
     canonical: "/contact",
   },
+  keywords: [
+    "hubungi jasa website Indonesia",
+    "konsultasi website Indonesia",
+    "jasa buat website jakarta",
+    "jasa pembuatan website murah",
+    "konsultasi SEO website",
+  ],
 };
 
 const contacts = [
